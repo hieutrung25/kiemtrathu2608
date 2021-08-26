@@ -4,11 +4,11 @@ import {Book} from '../../book';
 import {BookServiceService} from '../../service/books.service';
 
 @Component({
-  selector: 'app-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  selector: 'app-books-list',
+  templateUrl: './books-list.component.html',
+  styleUrls: ['./books-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class BooksListComponent implements OnInit {
 
   constructor(private  bookService: BookServiceService) { }
 
@@ -16,7 +16,7 @@ export class BookListComponent implements OnInit {
   quantity: number;
 
   ngOnInit(): void {
-    this.bookService.getAll().subscribe((result) => {
+    this.bookService.getAll().subscribe(result => {
       this.bookList = result;
       this.quantity = this.bookList.length;
       console.log(result);
