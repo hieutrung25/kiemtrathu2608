@@ -22,4 +22,13 @@ export class BookServiceService {
     return this.httpClient.post<Book>(API_URL, book);
   }
 
+  public detailBook(id: string): Observable<Book> {
+    return this.httpClient.get<Book>(API_URL + '/' + id);
+  }
+  public deleteBook(id: number): Observable<Book> {
+    return this.httpClient.delete<Book>(API_URL + '/' + id);
+  }
+  public editBook(book: Book, id: number): Observable<Book> {
+    return this.httpClient.put<Book>(API_URL + '/' + id, book);
+  }
 }

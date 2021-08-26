@@ -6,15 +6,14 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 import { BookServiceService } from 'src/app/service/books.service';
 
 @Component({
-  selector: 'app-book-edit',
-  templateUrl: './books-edit.component.html',
-  styleUrls: ['./books-edit.component.css']
+  selector: 'app-book-detail',
+  templateUrl: './books-detail.component.html',
+  styleUrls: ['./books-detail.component.css']
 })
-export class BooksEditComponent implements OnInit {
-  successMessage: string;
-  failMessage: string;
-  book: Book = {};
+export class BooksDetailComponent implements OnInit {
+  book: Book = {} ;
   sub: Subscription;
+
   constructor(private bookService: BookServiceService,
               private activatedRoute: ActivatedRoute) { }
 
@@ -24,16 +23,8 @@ export class BooksEditComponent implements OnInit {
       this.bookService.detailBook(id).subscribe(next => {
         this.book = next;
       }, error => {
-        this.failMessage = error;
+        console.log(error);
       });
-    });
-  }
-
-  updateBook(bookForm) {
-    this.bookService.editBook(bookForm.value, this.book.id).subscribe(() => {
-      this.successMessage = 'Cập nhật thành công';
-    }, () => {
-      this.failMessage = 'Cập nhật thất bại';
     });
   }
 }

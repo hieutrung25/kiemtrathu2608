@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BookServiceService} from '../../service/books.service';
 
 
@@ -11,7 +11,8 @@ export class BooksCreateComponent implements OnInit {
   successMessage: string;
   failMessage: string;
 
-  constructor(private blogService: BookServiceService) { }
+  constructor(private blogService: BookServiceService,) {
+  }
 
   ngOnInit(): void {
   }
